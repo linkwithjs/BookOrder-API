@@ -24,7 +24,6 @@ public class UserService {
     // Add User
     public User addUser(User user) {
 
-        System.out.print(user);
         user.setPassword(user.getPassword());
         User result = userRepo.save(user);
         return result;
