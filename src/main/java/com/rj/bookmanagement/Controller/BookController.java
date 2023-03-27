@@ -53,7 +53,7 @@ public class BookController {
     @DeleteMapping("/books/{bookId}")
     public ResponseEntity<Void> deleteBook(@PathVariable("bookId") int bookId) {
         try {
-            System.out.println("Book id : " + bookId);
+            // System.out.println("Book id : " + bookId);
             this.bookService.deleteBook(bookId);
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         } catch (Exception e) {

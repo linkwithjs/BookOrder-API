@@ -15,7 +15,6 @@ public class Book {
     private Integer price;
 
     public Book() {
-
     }
 
     public Book(int id, String bookName, String publisher, Integer quantity, Integer price) {

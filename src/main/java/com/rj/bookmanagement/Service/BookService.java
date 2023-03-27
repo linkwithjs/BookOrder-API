@@ -44,7 +44,6 @@ public class BookService {
 
     // Delete a book
     public void deleteBook(int bid) {
-        System.out.println("book id is: " + bid);
         bookRepo.deleteById(bid);
     }
 
