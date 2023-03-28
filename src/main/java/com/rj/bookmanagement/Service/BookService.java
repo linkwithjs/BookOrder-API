@@ -21,7 +21,7 @@ public class BookService {
     // get all books
     public List<Book> getAllBooks() {
         List<Book> list = (List<Book>) this.bookRepo.findAll();
-        System.out.println("books>> " + list);
+        // System.out.println("books>> " + list);
         return list;
     }
 
@@ -48,9 +48,18 @@ public class BookService {
     }
 
     // Update book
-    public void updateBook(Book book, int bookId) {
-        book.setId(bookId);
-        bookRepo.save(book);
+    public Book updateBook(Book book, int bookId) {
+        Book result = bookRepo.findById(bookId);
+        try {
+            if (result != null) {
+                book.setId(bookId);
+                bookRepo.save(book);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+
     }
 
 }

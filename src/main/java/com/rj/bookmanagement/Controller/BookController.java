@@ -77,8 +77,12 @@ public class BookController {
     @PutMapping("/books/{bookId}")
     public ResponseEntity<Book> updateBook(@RequestBody Book book, @PathVariable("bookId") int bookId) {
         try {
-            this.bookService.updateBook(book, bookId);
-            return ResponseEntity.ok().body(book);
+            Book result = bookService.updateBook(book, bookId);
+            if (result == null) {
+                return ResponseEntity.notFound().build();
+            } else {
+                return ResponseEntity.ok().body(result);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

@@ -35,4 +35,17 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+    // // User Login
+    // @PostMapping("/login")
+    // public ResponseEntity<User> userLogin(@RequestBody User user) {
+    // User u = null;
+    // try {
+    // u = this.userService.authenticate(user.getemail(), user.getPassword());
+    // return ResponseEntity.of(Optional.of(u));
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    // }
+    // }
 }
